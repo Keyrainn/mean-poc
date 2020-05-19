@@ -1,0 +1,35 @@
+<!--  Ni bina Component sendiri -->
+<h2>This is a New Component !!! :) </h2>
+
+<!-- (Property Binding) Wrap standard html jadi angular. contoh value jadi [value]-->
+<!-- <textarea rows="6" [value]="'Test'"></textarea> -->
+
+<!-- ni untuk wrap ke variable-->
+<!-- Accepting user input, declare guna #namaValue -->
+<!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
+
+<!-- two way binding, ngModel. kena call module lain kat app.module.ts -->
+<mat-card>
+  <mat-form-field>
+    <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
+  </mat-form-field>
+  <!--color boleh jadi primary,accent,warn. primary akan ikot color theme-->
+  <button
+  mat-raised-button
+  color="primary"
+  (click)="onAddPost()">Save Post</button>
+</mat-card>
+
+<!-- <hr> -->
+
+<!-- use Angular Event Binding instead of standard javascript
+    untuk event listerner
+     dalam  " " letak nama method nak buat apa bila click-->
+<!-- Accepting user input, kat sini call balik ja #namaValue tu without # dan pass ke method tu  -->
+<!-- <button (click)="onAddPost(postInput)">Save Post</button> -->
+<!-- <button (click)="onAddPost()">Save Post</button> -->
+
+<!-- outpot Hook atau string interpolation : {{ }} boleh call variale -->
+<!-- <p> {{ newPost }} </p> -->
+
+

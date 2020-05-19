@@ -17,6 +17,7 @@ Tools:
     - with Angular Essentials Extention
 2. NodeJs
 3. Angular CLI
+4. Angular Material (package for pre-build angular component)
 
 ## Development server
 

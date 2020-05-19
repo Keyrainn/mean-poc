@@ -1,0 +1,5 @@
+/* set semua display component jadi block */
+:host {
+  display: block;
+  margin-top: 1rem ;
+}
