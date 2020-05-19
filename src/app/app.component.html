@@ -1,5 +1,9 @@
 <app-header></app-header>
 <main>
-  <app-post-create></app-post-create>
-  <app-post-list></app-post-list>
+  <!-- untuk pass data tu kena guna $event, ni special variable -->
+  <!-- [] untuk property binding -->
+  <!-- onPostAdded() tu method kat root component -->
+  <!-- post-create component ke root component ke post-list component -->
+  <app-post-create (postCreated) = "onPostAdded($event)" ></app-post-create>
+  <app-post-list [posts]="storedPosts"></app-post-list>
 </main>

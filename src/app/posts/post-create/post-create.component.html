@@ -8,17 +8,41 @@
 <!-- Accepting user input, declare guna #namaValue -->
 <!-- <textarea rows="6" [value]="newPost" #postInput></textarea> -->
 
-<!-- two way binding, ngModel. kena call module lain kat app.module.ts -->
 <mat-card>
-  <mat-form-field>
-    <textarea matInput rows="6" [(ngModel)]="enteredValue"></textarea>
-  </mat-form-field>
-  <!--color boleh jadi primary,accent,warn. primary akan ikot color theme-->
-  <button
-  mat-raised-button
-  color="primary"
-  (click)="onAddPost()">Save Post</button>
-</mat-card>
+  <!-- bila submit form call onAddPost() -->
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+
+      <input
+      matInput type="text"
+      name="title"
+      ngModel
+      required
+      #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a post title!</mat-error>
+
+    </mat-form-field>
+    <mat-form-field>
+
+      <textarea
+      matInput rows="4"
+      name="content"
+      ngModel
+      required
+      #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a post title!</mat-error>
+
+
+    </mat-form-field>
+    <!--color boleh jadi primary,accent,warn. primary akan ikot color theme-->
+
+    <button
+    mat-raised-button
+    color="primary"
+    type="submit">Save Post</button>
+
+  </form>
+  </mat-card>
 
 <!-- <hr> -->
 
@@ -32,4 +56,19 @@
 <!-- outpot Hook atau string interpolation : {{ }} boleh call variale -->
 <!-- <p> {{ newPost }} </p> -->
 
-
+<!-- two way binding, ngModel. kena call module lain kat app.module.ts -->
+<!-- Cara ni untuk 2 way binding
+<mat-card>
+  <form>
+    <mat-form-field>
+      <input matInput type="text" [(ngModel)]="enteredTitle">
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="6" [(ngModel)]="enteredContent"></textarea>
+    </mat-form-field>
+    <button
+    mat-raised-button
+    color="primary"
+    (click)="onAddPost()">Save Post</button>
+  </form>
+  </mat-card>  -->
