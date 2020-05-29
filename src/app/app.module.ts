@@ -37,6 +37,7 @@ import { HeaderComponent } from './header/header.component';
     MatExpansionModule
 
   ],
+  // provider are for Services class
   providers: [],
   bootstrap: [AppComponent]
 })

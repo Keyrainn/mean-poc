@@ -1,10 +1,11 @@
 // Ni bina Component sendiri
 
 // Import component package dari angular
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgForm} from '@angular/forms';
 
 import { Post } from '../post.model'
+import { PostsService } from '../posts.service';
 
 // Typescriptclass, @Component tu decorators
 //Typical component ada selector dan templateUrl
@@ -24,7 +25,12 @@ export class PostCreateComponent{
 
   // untuk Event Emitter. postCreated tu boleh nama apa2. @output tu decorator
   // bagi luar dari component ni pon leh dengar event ni. maksudnya Parent component pon leh pakai (dekat app.component.html)
-  @Output() postCreated = new EventEmitter<Post>();
+  // @Output() postCreated = new EventEmitter<Post>();
+
+
+  constructor(public postsService: PostsService){
+
+  }
 
   //letak nama method
   // Data dari Form masuk sini
@@ -35,12 +41,14 @@ export class PostCreateComponent{
     if (postForm.invalid) {
       return ;
     }
-    const post: Post = {
-      title: postForm.value.title,
-      content: postForm.value.content
-    };
+    // const post: Post = {
+    //   title: postForm.value.title,
+    //   content: postForm.value.content
+    // };
 
-    this.postCreated.emit(post);
-
+    // this.postCreated.emit(post);
+    this.postsService.addPost(postForm.value.title, postForm.value.content);
+    // postForm.resetForm(); ni untuk reset balik text bila dh tekan save post
+    postForm.resetForm();
   }
 }

@@ -12,12 +12,12 @@ export class AppComponent {
   // title = 'mean-poc';
 
   // variable ni based on model Post[] from post.model.ts
-  storedPosts: Post[] = [];
+  // storedPosts: Post[] = [];
 
-  onPostAdded(post){
-    // call storedPosts dari variable, lepastu push post dari method argument ke dalam variable
-    this.storedPosts.push(post);
-    console.log(this.storedPosts);
-  }
+  // onPostAdded(post){
+  //   // call storedPosts dari variable, lepastu push post dari method argument ke dalam variable
+  //   this.storedPosts.push(post);
+  //   console.log(this.storedPosts);
+  // }
 
 }

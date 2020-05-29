@@ -1,6 +1,5 @@
 main {
   /* 1rem = 16 pixel untuk bagi jarakkan dengan toolbars */
-  margin-top: 1rem;
   width: 80%;
-  margin: auto;
+  margin: 1rem auto;
 }
